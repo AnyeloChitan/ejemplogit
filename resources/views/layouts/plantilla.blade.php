@@ -41,11 +41,19 @@
          <span><img  src="{{asset('img/category.png')}}" alt="Product"></span>
          <a href="{{route('categoria.index')}}">Categorias</a>
         </div>
+
+
+        <!-- productos -->
+         
+        <div class="element-slidebar-btn">
+         <span><img  src="{{asset('img/rokrt.png')}}" alt="Product"></span>
+         <a href="{{route('producto.index')}}">Prodcutos</a>
+        </div>
        
   
     
            
-    </div>
+    
    </aside>
 
    <!-- main -->
