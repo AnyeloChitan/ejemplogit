@@ -11,11 +11,29 @@ class ProductoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //
         $categorias=Categoria::all(); 
-        $productos=Producto::orderBy('id','DESC')->paginate(4);
+        //cosnsulta base de producto
+        $query=Producto::query();
+        //filtro por  categoria 
+         if($request->filled('categoria')) {
+            $query->where('id_categoria',$request->categoria);
+         }
+         //filtro por stock
+         if($request->stock=='con'){
+            $query->where('stock','>',0);
+         }elseif ($request->stock=='sin'){
+
+            $query->where('stock','<=',0);
+         }
+         //filtro por nombre
+         if ($request->filled('buscar')){
+            $query->where('nombre','like','%'.$request->buscar.'%');
+         }
+
+        $productos=$query->orderBy('id','DESC')->paginate(4);
         return view('producto.index',compact('productos','categorias'));
 
     }
