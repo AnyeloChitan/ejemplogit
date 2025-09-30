@@ -66,17 +66,37 @@ body{
     height: 20px;
     margin-right: 10px;
 }
+.element-slidebar-content p{
+    
+    margin: 20px;
+    font-size: 20px;
+}
 
-
-.element-slidebar-btn a {
+.element-slidebar-content a {
     display: block;
     text-decoration: none;
     color: var(--color-texto);
-    
+    padding: 10px 10px 10px 30px ;
     font-size: 16px;
 }
 
+.element-slidebar-content form{
+    margin: 0;
+    padding: 0;
+    
+}
 
+/* logout-link */
+.element-slidebar-content .logout-link{
+    display: block;
+    background: none;
+    border: none;
+    text-decoration: none;  
+    color: var(--color-texto);
+    padding: 10px 10px 10px 30px ;
+    font-size: 16px;
+    margin: 0;
+}
 .profile img{   
     border: solid 2px var(--color-texto-hover);
     border-radius: 50%;
@@ -84,10 +104,12 @@ body{
     height: 40px;
 
 }
-
-.element-slidebar-btn:hover {
+.element-slidebar-content{
+    display: none;
+}
+.element-slidebar-content a:hover, .element-slidebar-content form:hover,.element-slidebar-btn:hover {
     color: blueviolet;
-    background-color: rgba(45, 20, 44, 0.055);   
+    background-color: rgba(45, 20, 44, 0.055);
     border-radius: 0 20px 20px 0;
 }
 
@@ -97,6 +119,11 @@ body{
    border-radius: 0 20px 20px 0;
    
    
+}
+/* desplegar items de elemento del slidevar */
+.element-slidebar.active .element-slidebar-content{
+    display: block;
+    border-bottom: 1px solid rgb(179, 176, 176);
 }
 
 /* main */
@@ -360,9 +387,6 @@ body{
 .btn-filtrar:hover {
     background-color: #e0a800;
 }
-
-
-
  /* Estilos para la paginación */
 .pagination {
     display: flex;

@@ -22,7 +22,7 @@
   <!-- slidebar   -->
    <aside class="slidebar" id="slidebar">
    
-    <a href="" class="logo">
+    <a href="{{ route('welcome') }}" class="logo">
         <img src="{{asset('img/cangrejo.png')}}" alt="Logo" class="logo-img">
         <p class="logo-text">Tienda</p>
       </a>
@@ -31,8 +31,19 @@
     <div class="element-slidebar">
         <div class="element-slidebar-btn profile">
          <span><img src="{{asset('img/face3.png')}}" alt="avatar"></span>
-         <p>usuario</p>
+         <p>{{Auth::user()->name}}</p>
         </div>
+        <div class="element-slidebar-content">
+            <a href="{{route('profile.edit')}}">Perfil</a>
+            
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+               <input type="submit" value="Salir" class="logout-link">
+
+             </form>
+
+        </div>
+
        
     </div>
      <!-- Categorias -->
