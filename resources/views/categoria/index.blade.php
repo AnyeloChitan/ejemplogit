@@ -11,10 +11,14 @@ Categorias
 
     <nav class="nav-botones">
         <ul class="nav-menu">
+        @can('categoria.create')
+            
       
             <li class="nav-item">
                 <a href="{{route('categoria.create')}}" class="nav-link btn-agregar">Agregar Categoria</a>
             </li>
+
+        @endcan 
          
         </ul>
     </nav>
@@ -42,12 +46,17 @@ Categorias
                    <img src="img/view.png" alt=""> 
                 </a>
 
-               
+                @can('categoria.update')
+                      
+                 
                    <a href="{{route('categoria.edit',[$categoria->id])}}">
                    <img src="img/edit.png" alt="">
                    </a>
-               
 
+                @endcan 
+               
+                  @can('categoria.destroy')
+                                        
                
                     <form action="{{route('categoria.destroy',[$categoria->id])}}" method="POST" onsubmit="return confimarEliminacion()">
 
@@ -58,6 +67,7 @@ Categorias
                     <input type="image"src="img/delete.png"></input>
 
                      </form>
+                @endcan  
                  
                  <script>
                     function confimarEliminacion() {

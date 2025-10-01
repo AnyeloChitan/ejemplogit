@@ -6,11 +6,25 @@ use App\Models\Categoria;
 use Illuminate\Http\Request;
 use App\Http\Requests\CategoriaRequest;
 
+use Illuminate\Routing\Controller;
+
 class CategoriaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+    
+         public function __construct()
+    {
+        $this->middleware('can:categoria.create')->only(['create','store']);      
+        $this->middleware('can:categoria.index')->only('index');
+        $this->middleware('can:categoria.update')->only(['edit','update']); 
+        $this->middleware('can:categoria.destroy')->only('destroy');
+
+    }
+
+
+
     public function index()
     {
         //
