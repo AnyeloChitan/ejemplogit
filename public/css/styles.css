@@ -241,6 +241,14 @@ body{
     margin: 20px;
     height: 380px;
 }
+.card canvas {
+    max-width: 100% ;
+    max-height: 300px ; 
+    width: auto ;
+    height: auto ;
+}
+
+
 /* Estilos para la clase logo */
 .logo {
     display: flex;

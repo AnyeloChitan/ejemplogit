@@ -46,6 +46,13 @@
 
        
     </div>
+    <!-- Dashboard -->
+         
+        <div class="element-slidebar-btn">
+         <span><img  src="{{asset('img/compras.png')}}" alt="Dashboard"></span>
+         <a href="{{route('dashboard')}}">Dashboard</a>
+        </div>
+
      <!-- Categorias -->
          
         <div class="element-slidebar-btn">
