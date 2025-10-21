@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{asset('css/estilos-bienvenida.css')}}">
 <link rel="stylesheet" href="{{asset('css/styles.css')}}">
-
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
 <body>
@@ -39,7 +39,7 @@
                       <li>   <a href="{{ route('register') }}">Registro </a></li>
                       
                 @endauth
-                
+                <li> @livewire("icono-carrito")</li>
                 
                 
                 
@@ -56,20 +56,11 @@
      <section id="productos" class="productos">
         <h2>Nuestros productos</h2>
         <div class="productos-grid">
-        
-            @foreach($productos as $producto)
-            <div class="producto">
-                <img src="{{asset('img/'.$producto->imagen)}}" alt="{{$producto->imagen}}">
-                <h3>{{$producto->nombre}}</h3>
-                <p>{{$producto->precio_venta}}</p>
-            </div>
-           @endforeach
-           
+         
+            @livewire("catalogo-productos")
 
-        </div>
-        <div class="nav-botones">
-            <!-- elegir una platilla de paginacion de vendor/pagination -->
-              {{ $productos->links('vendor.pagination.default') }} 
+             
+           
             </div>
      </section>
      
