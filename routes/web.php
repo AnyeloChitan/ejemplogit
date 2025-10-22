@@ -7,12 +7,18 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\VentaController;
 
 Route::get('/',[WelcomeController::class,'welcome'])->name('welcome');
+
+Route::post('/ventas',[VentaController::class,'store'])->name('ventas.store');
 
 Route::get('/dashboard', [DashboardController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+
+    //rutas de ventas
+    Route::resource('/ventas',VentaController::class)->except(['store']);
 
     //ruta categorias
     Route::resource('/categoria',CategoriaController::class);

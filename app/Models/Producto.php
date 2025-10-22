@@ -22,6 +22,10 @@ public function categoria(){
     return $this->belongsTo(Categoria::class,'id_categoria');
 }
 
-
+//relacion con detalles de venta
+    public function detallesVenta()
+    {
+        return $this->hasMany(DetalleVenta::class,'producto_id');
+    }
 
 }

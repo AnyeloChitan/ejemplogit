@@ -17,6 +17,12 @@
     @if(count($productos)>0)
     <p class="total">Total: ${{ number_format($totalVenta, 2) }}</p>
     <button wire:click="vaciarCarrito" class="btn-vaciar">Vaciar carrito</button>
-    <a href="" class="btn-finalizar">Finalizar Compra</a>
+    
+      <form method="POST" action="{{ route('ventas.store') }}">
+            @csrf            
+            <button type="submit" class="btn-finalizar">Finalizar Compra</button>
+        </form>
+    
+
     @endif
 </div>
